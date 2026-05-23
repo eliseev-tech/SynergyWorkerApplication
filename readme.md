@@ -28,18 +28,27 @@
 - Java 17
 - Spring Boot 3
 - Maven
+- JUnit 5
 
 ## Структура проекта
 
 ```text
-src/main/java/ru/eliseevtech/synergyworkerapplication/
-├── model/
-│   └── Worker.java
-├── runner/
-│   └── WorkerConsoleRunner.java
-├── service/
-│   └── WorkerService.java
-└── SynergyWorkerApplication.java
+src/
+├── main/
+│   └── java/
+│       └── ru/eliseevtech/synergyworkerapplication/
+│           ├── model/
+│           │   └── Worker.java
+│           ├── runner/
+│           │   └── WorkerConsoleRunner.java
+│           ├── service/
+│           │   └── WorkerService.java
+│           └── SynergyWorkerApplication.java
+└── test/
+    └── java/
+        └── ru/eliseevtech/synergyworkerapplication/
+            └── service/
+                └── WorkerServiceTest.java
 ```
 
 ## Описание компонентов
@@ -74,6 +83,21 @@ src/main/java/ru/eliseevtech/synergyworkerapplication/
 - ввод данных работников с клавиатуры;
 - выполнение поиска работников по стажу;
 - завершение работы Spring Boot-приложения.
+
+## Тестирование
+
+В проекте реализованы модульные тесты для проверки работы сервиса `WorkerService`.
+
+Тесты проверяют:
+
+- поиск работников, чей стаж превышает заданное значение;
+- ситуацию, когда подходящие работники отсутствуют.
+
+### Запуск тестов
+
+```bash
+mvn test
+```
 
 ## Принципы объектно-ориентированного программирования
 
@@ -119,7 +143,8 @@ mvn spring-boot:run
 - для хранения работников используется `List<Worker>`;
 - реализован поиск работников, чей стаж превышает значение, введенное пользователем;
 - при отсутствии подходящих работников выводится соответствующее сообщение;
-- класс и логика работы с ним разделены по отдельным модулям.
+- класс и логика работы с ним разделены по отдельным модулям;
+- добавлены модульные тесты для проверки поиска работников по стажу.
 
 ## Автор
 
